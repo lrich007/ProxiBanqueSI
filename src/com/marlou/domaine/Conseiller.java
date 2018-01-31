@@ -178,10 +178,10 @@ public class Conseiller implements java.io.Serializable {
 	 * Méthodes génériques
 	 */
 
-	@Override
-	public String toString() {
-		return prenom + " " + nom + " (conseiller)";
-	}
+	// @Override
+	// public String toString() {
+	// return prenom + " " + nom + " (conseiller)";
+	// }
 
 	@Override
 	public boolean equals(Object obj) {
