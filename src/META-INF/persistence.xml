@@ -19,10 +19,10 @@
 <!--             <property name="javax.persistence.jdbc.password" value="" /> -->
  
             <!-- Spécifie le 'dialecte' SQL utilisé pour communiquer avec la BDD -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+            <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />-->
  
             <!-- Indique a Hibernate de (re-)créer la BDD au lancement de l'application -->
-            <!--   <property name="hibernate.hbm2ddl.auto" value="create" /> -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
  
     </persistence-unit>

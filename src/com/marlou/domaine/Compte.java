@@ -6,32 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.ManyToOne;
 
 /** @author Étienne, Sophia, Maria, Louis */
 @Entity
 @Inheritance
 @DiscriminatorColumn(name = "compte_type")
 public abstract class Compte implements java.io.Serializable {
-
-	public double getAutorisationDecouvert() {
-		return autorisationDecouvert;
-	}
-
-	public void setAutorisationDecouvert(double autorisationDecouvert) {
-		this.autorisationDecouvert = autorisationDecouvert;
-	}
-
-	public void setIdentifiant(int identifiant) {
-		this.identifiant = identifiant;
-	}
-
-	public void setSolde(double solde) {
-		this.solde = solde;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
 
 	private static final long serialVersionUID = 4368759148699972357L;
 	/** Identifiant unique du compte provenant de la base de donnée. */
@@ -43,14 +24,13 @@ public abstract class Compte implements java.io.Serializable {
 	/** Le montant positif maximal de découvert. */
 	protected double autorisationDecouvert;
 	/** Client qui possède le compte. */
+
+	@ManyToOne
 	private Client client;
 
 	/** Nécessaire pour la sérialisation de la classe. */
 	public Compte() {
-		this.identifiant = 0;
-		this.solde = 0;
-		this.autorisationDecouvert = 0;
-		this.client = null;
+
 	}
 
 	/**
@@ -158,6 +138,26 @@ public abstract class Compte implements java.io.Serializable {
 		} else {
 			throw new CompteException("Autorisation de découvert insuffisante — virement refusé");
 		}
+	}
+
+	public double getAutorisationDecouvert() {
+		return autorisationDecouvert;
+	}
+
+	public void setAutorisationDecouvert(double autorisationDecouvert) {
+		this.autorisationDecouvert = autorisationDecouvert;
+	}
+
+	public void setIdentifiant(int identifiant) {
+		this.identifiant = identifiant;
+	}
+
+	public void setSolde(double solde) {
+		this.solde = solde;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 }

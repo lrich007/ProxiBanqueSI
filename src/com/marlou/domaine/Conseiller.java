@@ -1,11 +1,12 @@
 package com.marlou.domaine;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /** @author Étienne, Sophia, Maria, Louis */
 @Entity
@@ -30,16 +31,16 @@ public class Conseiller implements java.io.Serializable {
 	/** Mot de passe pour l’authentification du conseiller. */
 	private String motDePasse;
 	/** Clients du conseiller ; il ne doit pas en y avoir plus de dix. */
-	private ArrayList<Client> clients;
+	@OneToMany(mappedBy = "conseiller")
+	private List<Client> clients;
+
+	public void setIdentifiant(int identifiant) {
+		this.identifiant = identifiant;
+	}
 
 	/** Nécessaire pour la sérialisation de la classe. */
 	public Conseiller() {
-		this.identifiant = 0;
-		this.nom = null;
-		this.prenom = null;
-		this.courriel = null;
-		this.motDePasse = null;
-		this.clients = null;
+
 	}
 
 	/**
@@ -81,7 +82,7 @@ public class Conseiller implements java.io.Serializable {
 	 *            Liste de clients du conseiller
 	 */
 	public Conseiller(int identifiant, String nom, String prenom, String courriel, String motDePasse,
-			ArrayList<Client> clients) {
+			List<Client> clients) {
 		this(identifiant, nom, prenom, courriel, motDePasse);
 		this.clients = clients;
 	}
@@ -143,7 +144,7 @@ public class Conseiller implements java.io.Serializable {
 	}
 
 	/** @return la liste de clients */
-	public ArrayList<Client> getClients() {
+	public List<Client> getClients() {
 		return clients;
 	}
 
@@ -151,7 +152,7 @@ public class Conseiller implements java.io.Serializable {
 	 * @param clients
 	 *            la liste de clients
 	 */
-	public void setClients(ArrayList<Client> clients) {
+	public void setClients(List<Client> clients) {
 		this.clients = clients;
 	}
 

@@ -1,11 +1,13 @@
 package com.marlou.domaine;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /** @author Étienne, Sophia, Maria, Louis */
 @Entity
@@ -25,16 +27,26 @@ public class Client implements java.io.Serializable {
 	/** Adresse du client. */
 	private String adresse;
 	/** Liste des comptes d’un client, entre un et deux. */
-	private ArrayList<Compte> comptes;
+	@OneToMany(mappedBy = "client")
+	private List<Compte> comptes;
+	@ManyToOne
+	private Conseiller conseiller;
+
+	public Conseiller getConseiller() {
+		return conseiller;
+	}
+
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
+	}
+
+	public void setIdentifiant(int identifiant) {
+		this.identifiant = identifiant;
+	}
 
 	/** Nécessaire pour la sérialisation de la classe. */
 	public Client() {
-		this.identifiant = 0;
-		this.nom = null;
-		this.prenom = null;
-		this.courriel = null;
-		this.adresse = null;
-		this.comptes = null;
+
 	}
 
 	/**
@@ -53,8 +65,7 @@ public class Client implements java.io.Serializable {
 	 * @param comptes
 	 *            Liste des compte du client
 	 */
-	public Client(int identifiant, String nom, String prenom, String courriel, String adresse,
-			ArrayList<Compte> comptes) {
+	public Client(int identifiant, String nom, String prenom, String courriel, String adresse, List<Compte> comptes) {
 		this.identifiant = identifiant;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -120,7 +131,7 @@ public class Client implements java.io.Serializable {
 	}
 
 	/** @return la liste des comptes */
-	public ArrayList<Compte> getComptes() {
+	public List<Compte> getComptes() {
 		return comptes;
 	}
 
@@ -128,7 +139,7 @@ public class Client implements java.io.Serializable {
 	 * @param comptes
 	 *            la liste des comptes
 	 */
-	public void setComptes(ArrayList<Compte> comptes) {
+	public void setComptes(List<Compte> comptes) {
 		this.comptes = comptes;
 	}
 
