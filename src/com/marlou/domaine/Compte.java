@@ -13,6 +13,26 @@ import javax.persistence.Inheritance;
 @DiscriminatorColumn(name = "compte_type")
 public abstract class Compte implements java.io.Serializable {
 
+	public double getAutorisationDecouvert() {
+		return autorisationDecouvert;
+	}
+
+	public void setAutorisationDecouvert(double autorisationDecouvert) {
+		this.autorisationDecouvert = autorisationDecouvert;
+	}
+
+	public void setIdentifiant(int identifiant) {
+		this.identifiant = identifiant;
+	}
+
+	public void setSolde(double solde) {
+		this.solde = solde;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
 	private static final long serialVersionUID = 4368759148699972357L;
 	/** Identifiant unique du compte provenant de la base de donnée. */
 	@Id
