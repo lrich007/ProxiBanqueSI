@@ -73,10 +73,10 @@ public abstract class Compte implements java.io.Serializable {
 	 * Méthodes génériques
 	 */
 
-	// @Override
-	// public String toString() {
-	// return "[solde=" + solde + ", client=" + client + "]";
-	// }
+	 @Override
+	 public String toString() {
+	 return "[solde=" + solde + ", client=" + client + "]";
+	 }
 
 	@Override
 	public int hashCode() {
