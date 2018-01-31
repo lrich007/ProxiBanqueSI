@@ -1,6 +1,11 @@
 package com.marlou.domaine;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 /** @author Étienne, Sophia et Maria */
+@Entity
+@DiscriminatorValue("compte_epargne")
 public class CompteEpargne extends Compte {
 
 	private static final long serialVersionUID = -2684741663640307269L;

@@ -1,10 +1,22 @@
 package com.marlou.domaine;
 
-/** @author Étienne, Sophia et Maria */
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+
+/** @author Étienne, Sophia, Maria, Louis */
+@Entity
+@Inheritance
+@DiscriminatorColumn(name = "compte_type")
 public abstract class Compte implements java.io.Serializable {
 
 	private static final long serialVersionUID = 4368759148699972357L;
 	/** Identifiant unique du compte provenant de la base de donnée. */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int identifiant;
 	/** Solde du compte. */
 	private double solde;

@@ -2,13 +2,21 @@ package com.marlou.domaine;
 
 import java.util.ArrayList;
 
-/** @author Étienne, Sophia et Maria */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/** @author Étienne, Sophia, Maria, Louis */
+@Entity
 public class Conseiller implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1010647939843647552L;
 	/** Le nombre maximal de clients d’un conseiller. */
 	private static final int MAX_CLIENTS = 10;
 	/** Identifiant unique du conseiller provenant de la base de donnée. */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int identifiant;
 	/** Nom du conseiller. */
 	private String nom;

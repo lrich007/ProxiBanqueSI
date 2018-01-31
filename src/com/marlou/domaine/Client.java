@@ -2,11 +2,19 @@ package com.marlou.domaine;
 
 import java.util.ArrayList;
 
-/** @author Étienne, Sophia et Maria */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/** @author Étienne, Sophia, Maria, Louis */
+@Entity
 public class Client implements java.io.Serializable {
 
 	private static final long serialVersionUID = -525793213189035105L;
 	/** Identifiant unique du client provenant de la base de donnée. */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int identifiant;
 	/** Nom du client. */
 	private String nom;
