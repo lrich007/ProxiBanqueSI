@@ -1,14 +1,14 @@
 package com.marlou.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.marlou.domaine.Client;
 import com.marlou.domaine.Compte;
 
 public interface IDao {
-	
+
 	boolean addCompte(Compte compte);
-	
+
 	/**
 	 * Renvoie la liste des comptes d’un client en fonction de sa clé primaire.
 	 *
@@ -18,7 +18,7 @@ public interface IDao {
 	 * @throws CompteOADException
 	 *             erreur SQL en cas d’échec de la récupération
 	 */
-	ArrayList<Compte> getComptesByID(int idClient) throws CompteOADException;
+	List<Compte> getComptesByID(int idClient) throws CompteOADException;
 
 	/**
 	 * Récupère un compte en fonction de sa clé primaire.
@@ -56,7 +56,7 @@ public interface IDao {
 	 *             erreur en cas d’échec de la mise à jour
 	 */
 	void majComptesAtomique(Compte compte1, Compte compte2) throws CompteOADException;
-	
+
 	/**
 	 * Fournit la liste des clients d’un conseiller en fonction de son identifiant
 	 * d’authentification.
@@ -67,7 +67,7 @@ public interface IDao {
 	 * @throws ClientOADException
 	 *             erreur si la requête SQL a échouée
 	 */
-	ArrayList<Client> getClientsByConseillerAuthName(String authName) throws ClientOADException;
+	List<Client> getClientsByConseillerAuthName(String authName) throws ClientOADException;
 
 	/**
 	 * Fournit la liste de tous les clients de la banque.
@@ -76,7 +76,7 @@ public interface IDao {
 	 * @throws ClientOADException
 	 *             erreur si la requête SQL échoue
 	 */
-	ArrayList<Client> getTousLesClients() throws ClientOADException;
+	List<Client> getTousLesClients() throws ClientOADException;
 
 	/**
 	 * Renvoie un client à partir de son identifiant unique dans la base de
@@ -99,5 +99,5 @@ public interface IDao {
 	 *             erreur si la mise à jour a échouée
 	 */
 	void majClient(Client client) throws ClientOADException;
-	
+
 }

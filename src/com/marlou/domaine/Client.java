@@ -152,11 +152,12 @@ public class Client implements java.io.Serializable {
 	 * Méthodes génériques
 	 */
 
-	@Override
-	public String toString() {
-		return "Client [identifiant=" + identifiant + ", nom=" + nom + ", prenom=" + prenom + ", courriel=" + courriel
-				+ ", adresse=" + adresse + ", comptes=" + comptes + "]";
-	}
+	// @Override
+	// public String toString() {
+	// return "Client [identifiant=" + identifiant + ", nom=" + nom + ", prenom=" +
+	// prenom + ", courriel=" + courriel
+	// + ", adresse=" + adresse + ", comptes=" + comptes + "]";
+	// }
 
 	@Override
 	public int hashCode() {
