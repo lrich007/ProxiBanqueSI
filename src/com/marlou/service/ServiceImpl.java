@@ -16,16 +16,11 @@ import com.marlou.domaine.Client;
 import com.marlou.domaine.Compte;
 
 @Singleton(name = "PB2")
-public class ServiceImpl implements IService {
+public class ServiceImpl implements IServiceLocal, IServiceRemote {
 
-	@EJB
+	@Inject
 	private IDao dao;
 
-	@Override
-	public boolean addCompte(Compte compte) {
-		// TODO Auto-generated method stub
-		return dao.addCompte(compte);
-	}
 
 	@Override
 	public List<Compte> getComptesByID(int idClient) throws CompteOADException {

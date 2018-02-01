@@ -17,13 +17,14 @@ import com.marlou.domaine.Compte;
 import com.marlou.domaine.CompteCourant;
 import com.marlou.service.ConseillerServiceException;
 import com.marlou.service.IService;
+import com.marlou.service.IServiceLocal;
 import com.marlou.service.ServiceImpl;
 
 @Path("/ProxiBanque")
 public class WebService {
 	
 	@Inject
-	IService iService;
+	IServiceLocal iService;
 
 //	@GET
 //	@Path("/add/{solde}/{decouvert}")
