@@ -77,7 +77,7 @@ public class DaoImpl implements IDao {
 	}
 
 	@Override
-	public List<Client> getTousLesClients() throws ClientOADException {
+	public List<Client> getTousLesClients(){
 		// TODO Auto-generated method stub
 		List<Client> clients = new ArrayList<>();
 		Query query = em.createQuery("select alias from Client alias");

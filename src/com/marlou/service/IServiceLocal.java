@@ -79,7 +79,7 @@ public interface IServiceLocal {
 	 * @throws ClientOADException
 	 *             erreur si la requête SQL échoue
 	 */
-	List<Client> getTousLesClients() throws ClientOADException;
+	List<Client> getTousLesClients();
 
 	/**
 	 * Renvoie un client à partir de son identifiant unique dans la base de

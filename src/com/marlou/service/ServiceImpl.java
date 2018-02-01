@@ -15,10 +15,11 @@ import com.marlou.dao.IDao;
 import com.marlou.domaine.Client;
 import com.marlou.domaine.Compte;
 
-@Singleton(name = "PB2")
+@Stateless(name="BP2")
 public class ServiceImpl implements IServiceLocal, IServiceRemote {
 
-	@Inject
+	//@Inject
+	@EJB
 	private IDao dao;
 
 
@@ -53,7 +54,7 @@ public class ServiceImpl implements IServiceLocal, IServiceRemote {
 	}
 
 	@Override
-	public List<Client> getTousLesClients() throws ClientOADException {
+	public List<Client> getTousLesClients() {
 		// TODO Auto-generated method stub
 		return dao.getTousLesClients();
 	}

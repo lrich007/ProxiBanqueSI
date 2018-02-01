@@ -16,14 +16,14 @@ import com.marlou.domaine.Client;
 import com.marlou.domaine.Compte;
 import com.marlou.domaine.CompteCourant;
 import com.marlou.service.ConseillerServiceException;
-import com.marlou.service.IService;
 import com.marlou.service.IServiceLocal;
 import com.marlou.service.ServiceImpl;
 
 @Path("/ProxiBanque")
 public class WebService {
 	
-	@Inject
+	//@Inject
+	@EJB
 	IServiceLocal iService;
 
 //	@GET
@@ -47,8 +47,8 @@ public class WebService {
 	@GET
 	@Path("/listAllClients")
 	@Produces(MediaType.TEXT_PLAIN)
-	public List<Client> getTousLesClients() throws ConseillerServiceException, ClientOADException{
-		System.out.println("Coucou" + iService.getTousLesClients() );
+	public List<Client> getTousLesClients() {
+		//System.out.println("Coucou" + iService.getTousLesClients() );
 		return iService.getTousLesClients();
 	}
 	
