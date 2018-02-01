@@ -10,16 +10,19 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.marlou.dao.ClientOADException;
 import com.marlou.dao.CompteOADException;
+import com.marlou.domaine.Client;
 import com.marlou.domaine.Compte;
 import com.marlou.domaine.CompteCourant;
+import com.marlou.service.ConseillerServiceException;
 import com.marlou.service.IService;
 import com.marlou.service.ServiceImpl;
 
 @Path("/ProxiBanque")
 public class WebService {
 	
-	@EJB
+	@Inject
 	IService iService;
 
 //	@GET
@@ -31,12 +34,21 @@ public class WebService {
 //		return iService.addCompte(c);
 //	}
 	
+	
 	@GET
 	@Path("/listcompte/{idclient}")
 	@Produces(MediaType.TEXT_PLAIN)
-	public List<Compte> getComptesByID(@PathParam("idclient") int idClient) throws CompteOADException{
+	public List<Compte> getComptes(@PathParam("idclient") int idClient) throws CompteOADException, ConseillerServiceException{
 		System.out.println("Coucou" + iService.getComptesByID(idClient) );
-		return iService.getComptesByID(idClient);
+		return iService.getComptes(idClient);
+	}
+	
+	@GET
+	@Path("/listAllClients")
+	@Produces(MediaType.TEXT_PLAIN)
+	public List<Client> getTousLesClients() throws ConseillerServiceException, ClientOADException{
+		System.out.println("Coucou" + iService.getTousLesClients() );
+		return iService.getTousLesClients();
 	}
 	
 }
